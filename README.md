@@ -1,2 +1,2 @@
 # libft
-Create my own library and fill it with recreated functions
+1st Major project as a Cadet @42siliconvalley. Create my own library and fill it with recreated functions.
