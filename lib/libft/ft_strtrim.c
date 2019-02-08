@@ -26,16 +26,13 @@ char	*ft_strtrim(char const *s)
 		s++;
 	while (*s)
 	{
-		ft_memcpy(tmp, s, 1);
-		tmp++;
+		*tmp++ = *s++;
 		i++;
-		s++;
 	}
 	tmp--;
 	while (ft_trim(*tmp) && tmp--)
 		i--;
-	tmp++;
-	*tmp = '\0';
+	*++tmp = '\0';
 	fresh = ft_strsub(fresh, 0, i);
 	return (fresh);
 }

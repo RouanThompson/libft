@@ -26,7 +26,7 @@ char	*ft_strtrima(char const *s, char c)
 		s++;
 	while (*s)
 	{
-		memcpy(tmp, s, 1);
+		ft_memcpy(tmp, s, 1);
 		tmp++;
 		i++;
 		s++;

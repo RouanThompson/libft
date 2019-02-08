@@ -12,28 +12,35 @@
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static size_t	get_nbrlen(int n)
 {
-	char *s;
+	size_t		i;
 
-	if ((s = (char *)malloc(sizeof(char) * 2)))
+	i = 1;
+	while (n /= 10)
+		i++;
+	return (i);
+}
+
+char			*ft_itoa(int n)
+{
+	char			*str;
+	size_t			nbrlen;
+	unsigned int	n_cpy;
+
+	nbrlen = get_nbrlen(n);
+	n_cpy = n;
+	if (n < 0)
 	{
-		if (n == -2147483648)
-			return (ft_strcpy(s, "-2147483648"));
-		if (n < 0)
-		{
-			s[0] = '-';
-			s[1] = '\0';
-			return (ft_strjoin(s, ft_itoa(-n)));
-		}
-		else if (n >= 10)
-			s = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
-		else if (n < 10 && n >= 0)
-		{
-			s[0] = n + '0';
-			s[1] = '\0';
-		}
-		return (s);
+		n_cpy = -n;
+		nbrlen++;
 	}
-	return (NULL);
+	if (!(str = ft_strnew(nbrlen)))
+		return (NULL);
+	str[--nbrlen] = n_cpy % 10 + '0';
+	while (n_cpy /= 10)
+		str[--nbrlen] = n_cpy % 10 + '0';
+	if (n < 0)
+		*(str + 0) = '-';
+	return (str);
 }
