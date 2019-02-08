@@ -6,7 +6,7 @@
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:58:25 by rothomps          #+#    #+#             */
-/*   Updated: 2019/02/04 18:58:33 by rothomps         ###   ########.fr       */
+/*   Updated: 2019/02/08 15:47:13 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char			*ft_itoa(int n)
 {
 	char			*str;
 	size_t			nbrlen;
-	unsigned int	n_cpy;
+	long int		n_cpy;
 
 	nbrlen = get_nbrlen(n);
 	n_cpy = n;
