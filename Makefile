@@ -6,15 +6,13 @@
 #    By: rothomps <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/24 16:10:23 by rothomps          #+#    #+#              #
-#    Updated: 2019/01/30 21:24:38 by rothomps         ###   ########.fr        #
+#    Updated: 2019/02/08 14:30:58 by rothomps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 HEAD = libft.h
-
-CC = gcc
 
 SRC = ft_putchar.c ft_putendl.c ft_putstr.c ft_strlen.c ft_putnbr.c \
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
@@ -30,14 +28,12 @@ SRC = ft_putchar.c ft_putendl.c ft_putstr.c ft_strlen.c ft_putnbr.c \
 	  ft_lstnew.c ft_itoa.c ft_lstdelone.c ft_lstdel.c\
 	  ft_lstadd.c ft_lstiter.c ft_lstmap.c  ft_strdel.c
 
-FLAG = -Wall -Wextra -Werror
-
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) -c $(FLAG) $(SRC)
+	gcc -c -Wall -Wextra -Werror $(SRC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
@@ -49,17 +45,7 @@ fclean: clean
 
 re: fclean all
 
-test:
-	$(CC) $(FLAG) $(SRC) test.c
-
 norm:
 	norminette -R CheckForbiddenSourceHeader
 
-bug:
-	$(CC) -g -o bug $(SRC) test.c
-
-zap:
-	rm bug
-	rm -rf bug.dSYM
-
-.PHONY: all clean fclean re norm test bug zap
+.PHONY: all clean fclean re norm
